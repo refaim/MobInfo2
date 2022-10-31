@@ -146,6 +146,12 @@ MI2_OPTIONS["MI2_OptShowHealth"] =
 MI2_OPTIONS["MI2_OptShowMana"] = 
 { text = "Mana"; help = "Show Mob mana/rage/energy info (current/max)"; }
 
+MI2_OPTIONS["MI2_OptShowArmor"] =
+{ text = "Armor"; help = "Show Mob armor"; }
+
+MI2_OPTIONS["MI2_OptShowResist"] =
+{ text = "Resist"; help = "Show Mob elemental resistances"; }
+
 MI2_OPTIONS["MI2_OptShowXp"] = 
 { text = "XP"; help = "Show number of experience points this Mob gives";
 info = "This is the actual last XP value that the Mob \ngave you. \n(not shown for Mobs that are grey to you)" }

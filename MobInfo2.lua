@@ -2,7 +2,7 @@
 -- MobInfo2.lua
 --
 -- Main module of MobInfo-2 AddOn
--- Version:  2.97
+-- Version:  2.98
 --
 -- MobInfo-2 is a World of Warcraft AddOn that provides you with useful
 -- additional information about Mobs (ie. opponents/monsters). It adds
@@ -166,6 +166,13 @@ function MI2_GetMobData( mobName, mobLevel, unitId )
 		end
 		mobData.manaCur = UnitMana( unitId )
 		mobData.manaMax = UnitManaMax( unitId )
+		mobData.armor = UnitResistance(unitId, 0)
+		mobData.holyResist = UnitResistance(unitId, 1)
+		mobData.fireResist = UnitResistance(unitId, 2)
+		mobData.natureResist = UnitResistance(unitId, 3)
+		mobData.frostResist = UnitResistance(unitId, 4)
+		mobData.shadowResist = UnitResistance(unitId, 5)
+		mobData.arcaneResist = UnitResistance(unitId, 6)
 	end
 
 	-- decode basic mob info
@@ -1537,6 +1544,13 @@ local function MI2_AddLocationToTooltip( location, showFullLocation )
 end -- MI2_AddLocationToTooltip()
 
 
+local function MI2_DrawResist( value, name, fontColor )
+	if value ~= 0 then
+		GameTooltip:AddLine( fontColor .. name .. " " .. value )
+	end
+end
+
+
 -----------------------------------------------------------------------------
 -- MI2_CreateNormalTooltip()
 --
@@ -1559,6 +1573,19 @@ local function MI2_CreateNormalTooltip( mobData, mobIndex, showFullLocation )
 	if mobData.manaMax and mobData.manaMax > 0 and MobInfoConfig.ShowMana == 1 then
 		GameTooltip:AddDoubleLine( mifontGold..MI_TXT_MANA, mifontWhite..mobData.manaCur.." / "..mobData.manaMax )
 		MI2_ManaLine = GameTooltip:NumLines()
+	end
+
+	if MobInfoConfig.ShowArmor == 1 then
+		MI2_DrawResist(mobData.armor, "Armor", mifontWhite)
+	end
+
+	if MobInfoConfig.ShowResist == 1 then
+		MI2_DrawResist(mobData.holyResist, "Holy Resistance", mifontYellow)
+		MI2_DrawResist(mobData.fireResist, "Fire Resistance", mifontRed)
+		MI2_DrawResist(mobData.natureResist, "Nature Resistance", mifontGreen)
+		MI2_DrawResist(mobData.frostResist, "Frost Resistance", mifontLightBlue)
+		MI2_DrawResist(mobData.shadowResist, "Shadow Resistance", mifontMageta)
+		MI2_DrawResist(mobData.arcaneResist, "Arcane Resistance", mifontCyan)
 	end
 
 	-- exit right here if mob does not exist in database

@@ -20,6 +20,8 @@ The extra information available to show on the game tooltip is:
 Class - class of mob
 Health - current and total health of the mob
 Mana - current and total mana of the mob
+Armor - base and current armor of the mob
+Resistance - base and current resistances of the mob
 Damage - min/max damage range of Mob against you (stored per char)
 DPS - your DPS (damage per second) against the Mob (stored per char)
 Kills - number of times you have killed the mob (stored per char)
@@ -156,6 +158,10 @@ MobInfo only adds information to the tooltip, but it does not modify where or ho
              MobInfo-2 Version History
 ***-----------------------------------------------***
 ***-----------------------------------------------***
+
+
+ver 2.98
+  - new feature: show armor and reistances (/mi2 showarmor and /mi2 showresist)
 
 ver 2.97
   - updated to comply with newest WoW version 1.11

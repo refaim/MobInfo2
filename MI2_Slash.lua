@@ -6,11 +6,13 @@
 -- actions.
 --
 
-miVersionNo = ' 2.97'
+miVersionNo = ' 2.98'
 
 miVersion = mifontYellow..'MobInfo-2 Version '..miVersionNo..mifontGreen..' http://www.dizzarian.com/forums/viewforum.php?f=16'
 miPatchNotes = mifontYellow..
   'MobInfo-2 Version '..miVersionNo..'\n'..
+  '  ver 2.98\n'..
+  '    - new feature: show armor and reistances\n\n'..
   '  ver 2.97\n'..
   '    - updated to comply with newest WoW version 1.11\n'..
   '    - show items on search options page in correct item color\n'..
@@ -62,6 +64,8 @@ function MI2_SlashAction_Default()
 	MobInfoConfig.ShowClass = 1
 	MobInfoConfig.ShowHealth = 1
     MobInfoConfig.ShowMana = 0
+	MobInfoConfig.ShowArmor = 0
+	MobInfoConfig.ShowResist = 0
 	MobInfoConfig.ShowDamage = 1
 	MobInfoConfig.ShowKills = 0
 	MobInfoConfig.ShowLoots = 1
@@ -83,6 +87,8 @@ function MI2_SlashAction_AllOn()
     MobInfoConfig.ShowClass = 1
     MobInfoConfig.ShowHealth = 1
     MobInfoConfig.ShowMana = 1
+    MobInfoConfig.ShowArmor = 1
+    MobInfoConfig.ShowResist = 1
     MobInfoConfig.ShowKills = 1
     MobInfoConfig.ShowDamage = 1
     MobInfoConfig.ShowXp = 1
@@ -104,6 +110,8 @@ function MI2_SlashAction_AllOff()
     MobInfoConfig.ShowClass = 0
     MobInfoConfig.ShowHealth = 0
     MobInfoConfig.ShowMana = 0
+    MobInfoConfig.ShowArmor = 0
+    MobInfoConfig.ShowResist = 0
     MobInfoConfig.ShowKills = 0
     MobInfoConfig.ShowDamage = 0
     MobInfoConfig.ShowXp = 0
@@ -125,6 +133,8 @@ function MI2_SlashAction_Minimal()
     MobInfoConfig.ShowClass = 1
     MobInfoConfig.ShowHealth = 1
     MobInfoConfig.ShowMana = 0
+    MobInfoConfig.ShowArmor = 0
+    MobInfoConfig.ShowResist = 0
     MobInfoConfig.ShowKills = 0
     MobInfoConfig.ShowDamage = 0
     MobInfoConfig.ShowXp = 0
